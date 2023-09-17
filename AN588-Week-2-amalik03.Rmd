@@ -1,0 +1,91 @@
+---
+title: "A-Malik03: Module 4 Challenges"
+subtitle: "Assignment Due 09-17-2023"
+author: "Allister Malik"
+output: html_document
+
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+
+**Reflection**  
+
+Three difficult things were doing challenge 1, challenge 5 and getting this file to Knit. Challenge 1 was difficult because the strplit function was still returning the full vector. After figuring out the difference between this vector with other vectors using the class function, I figured I had to unlist it. And it worked! 
+
+Challenge 5 was difficult because I could not convert the dataframe columns to the desired system, it would onyl desplay as a result of inputing the code. I did some internet searching and discovered the sapply function and used that to convert the dataframe into the respective values.
+
+Knitting this file was an unsurmountable problem I had. The terminal kept outputing "Error in yaml::yaml.load(..., eval.expr = TRUE) : /     Scanner error: while scanning a simple key at line 5, column 1 could not find expected ':' at line 6, column 1." Line 5 and line 5 coded the date and the author YAML. I created a scrap Rmarkdown to figure out the problem but I could not. In the end I decided to delete the date line, which fixed the entire problem.
+
+This module had its difficulties but the internet was an invaluable for figuring the problems out.
+
+## Challenge 1
+```{r,}
+u1 <- "Stately, plump Buck Mulligan came from the stairhead, bearing a bowl of lather on which a mirror and a razor lay crossed."
+u2 <- unlist(strsplit(u1, split = " "))
+u2[seq(0, length(u2), 3)]
+```
+
+## Challenge 2
+```{r}
+m <- matrix(data = 1:80, nrow = 8, ncol = 10, byrow = FALSE)
+x <- m[, c(2, 3, 6)]
+x
+x <- m[6:8, ]
+x
+x <- m[2:6, 2:9]
+x
+```
+
+
+## Challenge 3
+```{r}
+a <- array(data = 400:1, dim = c(5, 5, 4, 4))
+a
+a[1, 1, 1, 2]
+a[2, 3, 2, ]
+a[1:5, 1:5, 3, 3]
+```
+
+
+## Challenge 4
+```{r,}
+Lemuroidea <- c("Cheirogaleidae", "Lepilemuridae", "Indriidae", "Lemuridae",
+    "Daubentoniidae")
+Lorisoidea <- c("Lorisidae", "Galagidae")
+Strepsirhini <- list(Lemuroidea, Lorisoidea)
+names(Strepsirhini) <- list("Lemuroidea", "Lorisoidea")
+Strepsirhini
+Tarsioidea <- c("Tarsiidae")
+Catarrhini <- c("Cercopithecidae", "Hylobatidae", "Hominidae")
+Platyrrhini <- c("Cebidae", "Atelidae", "Pitheciidae")
+Anthropoidea <- list(Platyrrhini, Catarrhini)
+names(Anthropoidea) <- list("Platyrrhini", "Catarrhini")
+Haplorhini <- list(Anthropoidea, Tarsioidea)
+names(Haplorhini) <- list("Anthropoidea", "Tarsioidea")
+Haplorhini
+Primates <- list(Haplorhini, Strepsirhini)
+names(Primates) <- list("Haplorhini", "Strepsirhini")
+PrimatesList <- list(Primates)
+names(PrimatesList) <- "Primates"
+PrimatesList
+```
+
+
+## Challenge 5
+```{r}
+m3 <- matrix(data = c(3, 0, 1, 23, 1, 2, 33, 1, 1, 42, 0, 1, 41, 0, 2), nrow = 5, ncol = 3, byrow = TRUE)
+m3
+df <- as.data.frame(m3)
+df[, 2] <- sapply(df[,2], as.logical)
+df[, 3] <- sapply(df[, 3], as.factor)
+print.data.frame(df)
+str(df)
+```
+<center>THE END. . .<center>
+
+
