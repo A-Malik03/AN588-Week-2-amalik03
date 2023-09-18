@@ -12,18 +12,6 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 
-
-
-**Reflection**  
-
-Three difficult things were doing challenge 1, challenge 5 and getting this file to Knit. Challenge 1 was difficult because the strplit function was still returning the full vector. After figuring out the difference between this vector with other vectors using the class function, I figured I had to unlist it. And it worked! 
-
-Challenge 5 was difficult because I could not convert the dataframe columns to the desired system, it would onyl desplay as a result of inputing the code. I did some internet searching and discovered the sapply function and used that to convert the dataframe into the respective values.
-
-Knitting this file was an unsurmountable problem I had. The terminal kept outputing "Error in yaml::yaml.load(..., eval.expr = TRUE) : /     Scanner error: while scanning a simple key at line 5, column 1 could not find expected ':' at line 6, column 1." Line 5 and line 5 coded the date and the author YAML. I created a scrap Rmarkdown to figure out the problem but I could not. In the end I decided to delete the date line, which fixed the entire problem.
-
-This module had its difficulties but the internet was an invaluable for figuring the problems out.
-
 ## Challenge 1
 ```{r,}
 u1 <- "Stately, plump Buck Mulligan came from the stairhead, bearing a bowl of lather on which a mirror and a razor lay crossed."
@@ -87,6 +75,20 @@ df[, 3] <- sapply(df[, 3], as.factor)
 print.data.frame(df)
 str(df)
 ```
+
+
+
+
+**Challenges**  
+
+Three difficult things were doing challenge 1, challenge 5 and getting this file to Knit. Challenge 1 was difficult because the strplit function was still returning the full vector. After figuring out the difference between this vector with other vectors using the class function, I figured I had to unlist it. And it worked! 
+
+Challenge 5 was difficult because I could not convert the dataframe columns to the desired system, it would onyl desplay as a result of inputing the code. I did some internet searching and discovered the sapply function and used that to convert the dataframe into the respective values.
+
+Knitting this file was an unsurmountable problem I had. The terminal kept outputing "Error in yaml::yaml.load(..., eval.expr = TRUE) : /     Scanner error: while scanning a simple key at line 5, column 1 could not find expected ':' at line 6, column 1." Line 5 and line 5 coded the date and the author YAML. I created a scrap Rmarkdown to figure out the problem but I could not. In the end I decided to delete the date line, which fixed the entire problem.
+
+This module had its difficulties but the internet was an invaluable for figuring the problems out.
+
 <center>THE END. . .<center>
 
 
