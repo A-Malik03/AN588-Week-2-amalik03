@@ -1,24 +1,28 @@
----
-title: "Peer Commentary"
-output: html_document
-date: "2023-09-17"
----
 
-I am testing to make sure I can commit this rmd file to be used to edit your original homework code
 ---
 title: "A-Malik03: Module 4 Challenges"
 subtitle: "Assignment Due 09-17-2023"
 author: "Allister Malik"
 output: 
   html_document:
-    theme: cerulean
+    theme: cerulean 
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+Peer Commentary
 
+Two things that I like about your code: I like that you were able to make your chunk names aka category names match the title font in the HTML file. I also like that you were able to find an easier way to extrac every third element in challenge 3 as I had to extract them individually. 
+
+One thing that I did not like about your code is that once you created a matrix of numbers in challenge 2, you did not add a code to view it in its original state before making changes to it. 
+
+To comment on your relections section: I also had major issues knitting the file! Challenge 1-3 were OKAY for me, while challenge 4 and 5 took a while for me to figure out. I had issues in every challenge and had to also google/read the textbooks to try and trouble shoot. 
+
+Overall, great job. Your code worked when I ran it, and the HTML file looks great!
+
+-Lillian
 
 
 **Reflection**  
@@ -27,20 +31,21 @@ Three difficult things were doing challenge 1, challenge 5 and getting this file
 
 Challenge 5 was difficult because I could not convert the dataframe columns to the desired system, it would onyl desplay as a result of inputing the code. I did some internet searching and discovered the sapply function and used that to convert the dataframe into the respective values.
 
-Knitting this file was an unsurmountable problem I had. The terminal kept outputing "Error in yaml::yaml.load(..., eval.expr = TRUE) : /     Scanner error: while scanning a simple key at line 5, column 1 could not find expected ':' at line 6, column 1." Line 5 and line 5 coded the date and the author YAML. I created a scrap Rmarkdown to figure out the problem but I could not. In the end I decided to delete the date line, which fixed the entire problem.
+Knitting this file was an unsurmountable problem I had.The terminal kept outputing "Error in yaml::yaml.load(..., eval.expr = TRUE) : /     Scanner error: while scanning a simple key at line 5, column 1 could not find expected ':' at line 6, column 1." Line 5 and line 5 coded the date and the author YAML. I created a scrap Rmarkdown to figure out the problem but I could not. In the end I decided to delete the date line, which fixed the entire problem.
 
 This module had its difficulties but the internet was an invaluable for figuring the problems out.
 
 ## Challenge 1
-```{r,}
+```{r,} 
 u1 <- "Stately, plump Buck Mulligan came from the stairhead, bearing a bowl of lather on which a mirror and a razor lay crossed."
-u2 <- unlist(strsplit(u1, split = " "))
-u2[seq(0, length(u2), 3)]
+u2 <- unlist(strsplit(u1, split = " ")) #you can also use the str_split function as to not create a second vector --> "str_split(u1, "plump", n = 1, simplify = FALSE)"
+u2[seq(0, length(u2), 3)] 
 ```
 
 ## Challenge 2
 ```{r}
 m <- matrix(data = 1:80, nrow = 8, ncol = 10, byrow = FALSE)
+m #I would include m here, so that it shows the output of your matrix
 x <- m[, c(2, 3, 6)]
 x
 x <- m[6:8, ]
@@ -56,11 +61,11 @@ a <- array(data = 400:1, dim = c(5, 5, 4, 4))
 a
 a[1, 1, 1, 2]
 a[2, 3, 2, ]
-a[1:5, 1:5, 3, 3]
+a[1:5, 1:5, 3, 3] #I did my coding the same way for challenge 3
 ```
 
 
-## Challenge 4
+## Challenge 4 
 ```{r,}
 Lemuroidea <- c("Cheirogaleidae", "Lepilemuridae", "Indriidae", "Lemuridae",
     "Daubentoniidae")
@@ -80,20 +85,22 @@ Primates <- list(Haplorhini, Strepsirhini)
 names(Primates) <- list("Haplorhini", "Strepsirhini")
 PrimatesList <- list(Primates)
 names(PrimatesList) <- "Primates"
-PrimatesList
+PrimatesList #I did my code similarly for challenge 4
 ```
 
 
-## Challenge 5
-```{r}
+## Challenge 5 
+```{r}  
 m3 <- matrix(data = c(3, 0, 1, 23, 1, 2, 33, 1, 1, 42, 0, 1, 41, 0, 2), nrow = 5, ncol = 3, byrow = TRUE)
 m3
 df <- as.data.frame(m3)
-df[, 2] <- sapply(df[,2], as.logical)
+df #include df here to show the matrix as a data frame, since that was a part of the challenge
+df[, 2] <- sapply(df[,2], as.logical) #you can also do df[,2] <- as.logical(df[,2]) 
 df[, 3] <- sapply(df[, 3], as.factor)
-print.data.frame(df)
+print.data.frame(df) #you can also use the code "df" to view your new data frame, unless print.data.frame(df) does something specific that you want. I did not notice a differnce when I used df to view your changed data frame
 str(df)
 ```
-<center>THE END. . .<center>
+<center>THE END. . .<center> 
 
+Nice personal touch ^
 
